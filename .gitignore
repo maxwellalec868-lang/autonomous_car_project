@@ -1,0 +1,62 @@
+# ==========================
+# STM32CubeIDE / STM32CubeMX
+# ==========================
+
+# Build output directories
+Debug/
+Release/
+build/
+out/
+
+# Object files, binaries, and map files
+*.o
+*.d
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+*.srec
+
+# Generated dependency and intermediate files
+*.launch
+*.i
+*.su
+*.gcno
+*.gcda
+*.gcov
+
+# CubeIDE metadata and local settings
+.settings/
+.metadata/
+*.log
+*.bak
+*.tmp
+
+# Eclipse local history and workspace files
+.localhistory/
+*.swp
+*.swo
+*.autosave
+*.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Backup files
+*~
+*.old
+
+# ==========================
+# Optional: keep only source & config
+# ==========================
+# Keep your key project structure:
+#   - Src/
+#   - Inc/
+#   - drivers/
+#   - Startup/
+#   - .project / .cproject (if needed for CubeIDE import)
+#   - linker script (.ld)
+#   - README.md
