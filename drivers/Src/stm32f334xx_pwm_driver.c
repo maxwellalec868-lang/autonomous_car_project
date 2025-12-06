@@ -76,7 +76,7 @@ void pwm_init(PWM_Handle_t* pTIMHandle){
 	}
 
 // (i) Configure output compare register by setting an initial value for the duty cycle (MAY MOVE THIS TO ITS OWN FUNCTION)
-	pTIMHandle->pTIMx->CCR1 = 500; // Starting off with a duty cycle of 500; THIS IS FAIRLY SPECIFIC TO DIMMING LED EXAMPLE, MAY NEED TO CHANGE THIS OR ACCEPT INPUT FROM MAIN
+	pTIMHandle->pTIMx->CCR1 = 5; // Starting off with a duty cycle of 500; THIS IS FAIRLY SPECIFIC TO DIMMING LED EXAMPLE, MAY NEED TO CHANGE THIS OR ACCEPT INPUT FROM MAIN
 
 // (j) Force an update using EGR reg bit field UG to latch PSC/ARR/CCR instantly. Helps ensure no glitches when running
 	pTIMHandle->pTIMx->EGR |= (1 << TIM_EGR_UG_POS);
