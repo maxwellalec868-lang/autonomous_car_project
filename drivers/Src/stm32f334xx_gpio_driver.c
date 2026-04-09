@@ -335,7 +335,7 @@ void GPIO_IRQ_Interrupt_Config(uint8_t IRQNumber, uint8_t EnorDi){
 			// Program ISER1 Register
 			*NVIC_ISER1 |= (1 << (IRQNumber % 32));
 		}
-		else if (IRQNumber >= 65 && IRQNumber < 96){
+		else if (IRQNumber >= 64 && IRQNumber < 96){
 			// Program ISER2 Register
 			// Since I only have 81 interrupts, ISER2 is sufficient
 			*NVIC_ISER2 |= (1 << (IRQNumber % 64));
@@ -352,7 +352,7 @@ void GPIO_IRQ_Interrupt_Config(uint8_t IRQNumber, uint8_t EnorDi){
 			// Program ICER1 Register
 			*NVIC_ICER1 |= (1 << (IRQNumber % 32));
 			}
-		else if (IRQNumber >= 65 && IRQNumber < 96){
+		else if (IRQNumber >= 64 && IRQNumber < 96){
 			// Program ICER2 Register
 			*NVIC_ICER2 |= (1 << (IRQNumber % 64));
 

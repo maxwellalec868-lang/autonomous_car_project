@@ -28,6 +28,18 @@ void EXTI9_5_IRQHandler(void){
 		GPIO_ToggleOutputPin(GPIOA, GPIO_PIN_NO_12);
 	}
 
+//
+//void EXTI9_5_IRQHandler(void){
+//	// When button pressed then this interrupt is called
+//		delay();
+//		GPIO_IRQHandling(GPIO_PIN_NO_8);
+//		// STEP 3: Call turn motor func in IRQ_Handler
+//		turn_motor(deg);
+//		for (uint8_t i; i++; i < 10){
+//			delay();
+//		}
+//	}
+
 void set_servo_angle(PWM_Handle_t* pwm_timX_chX, uint8_t angle){
 	if (angle > 180){
 		angle = 180; // Caps at 180 so everything functions as expected
@@ -135,16 +147,6 @@ int main (void){
 
 }
 
-//
-//void EXTI9_5_IRQHandler(void){
-//	// When button pressed then this interrupt is called
-//		delay();
-//		GPIO_IRQHandling(GPIO_PIN_NO_8);
-//		// STEP 3: Call turn motor func in IRQ_Handler
-//		turn_motor(deg);
-//		for (uint8_t i; i++; i < 10){
-//			delay();
-//		}
-//	}
+
 
 

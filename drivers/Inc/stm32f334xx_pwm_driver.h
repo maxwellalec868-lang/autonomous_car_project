@@ -66,7 +66,6 @@ typedef struct
  * */
 
 /*
- * TODO
  * @PWM_CHANNEL_OUTPUT_MODES
  * Config options for PWM channel output modes in the CCMR reg bit field CCxS
  * Fairly certain that only one that will be used for PWM is TIM_CCXS_CHN_OUT but not positive! ***
@@ -77,7 +76,6 @@ typedef struct
 #define TIM_CCXS_CHN_IN_TRC				3
 
 /*
- * TODO
  * @PWM_MODES
  * Config PWM mode to either 1 or 2
  * Many output modes here but only need PWM mode 1 and mode 2 for now
@@ -87,7 +85,6 @@ typedef struct
 #define TIM_OP_MODE_2					7
 
 /*
- * TODO
  * @PWM_PRELOAD
  * Config PWM to perform preloading/buffering
  * */
@@ -96,7 +93,6 @@ typedef struct
 
 
 /*
- * TODO
  * @PWM_OP_POLARITY
  * Config PWM polarity (Active high or active low)
  * */

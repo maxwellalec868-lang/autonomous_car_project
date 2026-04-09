@@ -10,7 +10,7 @@
  * (1) Macro Definitions
  * (2) Memory Component Base Addresses
  * (3) Bus Peripheral Base Address
- * Refer to driver notes for everything that is and should be included here.
+ * Refer to Must Have Header Files for everything that is and should be included here.
  */
 
 
@@ -20,6 +20,7 @@
 
 
 #include <stdint.h>
+#include <stdio.h> // Only for NUll as of now
 
 /* *********** (0) BEGINNING OF PROCESSOR SPECIFIC DETAILS *********** */
 /*
@@ -285,6 +286,22 @@ typedef struct{
 	__vo uint32_t DMAR;				/*DMA address for full transfer register				ADDRESS OFFSET: 0x4C*/
 }TIM23_RegDef_t;
 
+
+typedef struct{
+	__vo uint32_t CR1;			/* I2C control register									ADDRESS OFFSET: 0x00*/
+	__vo uint32_t CR2;			/* I2C control register	2								ADDRESS OFFSET: 0x04*/
+	__vo uint32_t OAR1;			/* Own address 1 										ADDRESS OFFSET: 0x08*/
+	__vo uint32_t OAR2;			/* Own address 2										ADDRESS OFFSET: 0x0C*/
+	__vo uint32_t TIMINGR; 		/* I2C Timing Register 									ADDRESS OFFSET: 0x10*/
+	__vo uint32_t TIMEOUTR;		/* I2C Timeout Register									ADDRESS OFFSET: 0x14*/
+	__vo uint32_t ISR;			/* I2C Interrupt and Status Register					ADDRESS OFFSET: 0x18*/
+	__vo uint32_t ICR;			/* I2C Interrupt and Clear Register 					ADDRESS OFFSET: 0x1C*/
+	__vo uint32_t PECR;			/* I2C PEC Register 									ADDRESS OFFSET: 0x20*/
+	__vo uint32_t RXDR;			/* I2C Recieve Data Register 							ADDRESS OFFSET: 0x24*/
+	__vo uint32_t TXDR;			/* I2C Transmit Data Register 							ADDRESS OFFSET: 0x28*/
+}I2C_RegDef_t;
+
+
 /* *********** (5) END OF STRUCTS FOR PERIPHERAL REGISTERS *********** */
 
 
@@ -308,6 +325,8 @@ typedef struct{
 // MAY NEED TO VERIFY THESE
 #define TIM2			((TIM23_RegDef_t*)TIM2_BASEADDR)
 #define TIM3			((TIM23_RegDef_t*)TIM3_BASEADDR)
+
+#define I2C1			((I2C_RegDef_t*)I2C1_BASEADDR)
 /* *********** (6) END OF PERIPHERAL DEFINITIONS *********** */
 
 
@@ -315,7 +334,6 @@ typedef struct{
 /* *********** (7) BEGINNING OF CLOCK ENABLE/DISABLE MACROS *********** */
 /*
  * Clock enable Macros for GPIOx
- * WILL VERIFY AND TEST THESE
  * */
 #define GPIOA_PCLK_EN() 	(RCC->AHBENR |= (1 << 17))		// Set bit 17 to 1 to enable clock for GPIOA
 #define GPIOB_PCLK_EN() 	(RCC->AHBENR |= (1 << 18))
@@ -325,7 +343,6 @@ typedef struct{
 
 /*
  * Clock disable Macros for GPIOx
- * WILL VERIFY AND TEST THESE
  * */
 
 #define GPIOA_PCLK_DI() 	(RCC->AHBENR &= ~(1 << 17))		// Clear bit 17; Ensure its 0 to disable clock for GPIOA
@@ -345,6 +362,9 @@ typedef struct{
 #define TIM3_PCLK_DI()		(RCC->APB1ENR &= ~(1 << 1))
 
 
+/*Clock enable/disable macros for TIM2 and TIM3*/
+#define I2C1_PCLK_EN()		(RCC->APB1ENR |= (1 << 21))	// VERIFY !!!!!!!!!!!!!!
+#define I2C1_PCLK_DI()		(RCC->APB1ENR &= ~(1 << 21))	// VERIFY !!!!!!!!!!!!!!
 /* *********** (7) END OF CLOCK ENABLE/DISABLE MACROS *********** */
 
 
