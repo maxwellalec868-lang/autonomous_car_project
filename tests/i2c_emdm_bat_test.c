@@ -111,8 +111,8 @@ int main(){
 
 	// **** Start of initial motor test code ****
 
-	uint8_t motor_type[2] = {0x14, 3};   // register 20, value 3
-	uint8_t polarity[2]   = {0x15, 0};   // register 21, value 0
+	uint8_t motor_type[2] = {0x14, 3};   // register 0x14, value 3
+	uint8_t polarity[2]   = {0x15, 0};   // register 0x15, value 0
 //	int8_t move_backward[4] = {0x1F, -30, 0, -30, 0};
 	uint8_t  move_forward[5] = {0x1F, 50, 0, 50, 0};
 	uint8_t  stop[5] = {0x1F, 0, 0, 0, 0};

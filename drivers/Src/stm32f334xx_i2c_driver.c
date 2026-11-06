@@ -555,7 +555,7 @@ I2C_Status_t I2C_Master_RX(I2C_Handle_t* pI2CHandle, uint8_t* pData_buf, uint8_t
 		}
 
 		// Wait for bus to be free (not BUSY)
-		// TODO: Add timeout in this so it doesnt hang forever if an error occurss (STOPF never set). Fine for now since doing early testing
+		// TODO: Add timeout in this so it doesnt hang forever if an error occurs (STOPF never set). Fine for now since doing early testing
 		if (repeated_start != 1){ // If it = 1 then this while loop shouldnt execute because line will be busy forever
 			while (pI2CHandle->pI2C1->ISR & (1U << 15));
 		}
